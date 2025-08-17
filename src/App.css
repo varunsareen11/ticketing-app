@@ -1,0 +1,196 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+
+}
+
+/* Common CSS */
+body{
+   background-color: bisque;
+  min-height: 100vh;
+}
+.container{
+  max-width: 85%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.heading{
+  text-align: center;
+  font-size: 40px;
+}
+
+/* Header */
+.navigation{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.navigation a{
+  text-decoration: none;
+  color: #000;
+}
+
+.navigation .logo{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navigation .btn{
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 50px; 
+  transition: .3s;
+}
+
+.navigation .btn:hover{
+  background-color: #fff;
+  color: #000;
+  transition: .3s;
+}
+
+/* Ticketing list Styling */
+.ticketing_main{
+  padding: 50px 0;
+}
+
+.below_head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 10px ;
+}
+
+.below_head .count{
+    display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.below_head .count strong{
+  margin-left: 10px;
+}
+
+.below_head .search{
+  width:33.3%;
+}
+
+.below_head .search input{
+  width: 100%;
+  height: 35px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #000;
+  padding: 5px 10px;
+}
+
+.ticketing_list{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.ticketing_list li{
+  flex: 0 0 33.3%
+}
+
+.ticketing_list li .ticketing_card{
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.ticketing_list li .ticketing_card h5{
+  font-size: 25px;
+}
+
+.ticketing_list li .ticketing_card span{
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+  display: inline-block;
+  font-weight: 500;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.ticketing_list li .ticketing_card .red{
+  background-color: #f2bdbd
+}
+.ticketing_list li .ticketing_card .yellow{
+  background-color: #f8f8bc;
+}
+.ticketing_list li .ticketing_card .blue{
+  background-color: #c8c8f3;
+}
+
+.ticketing_list li .ticketing_card p{
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+/* Add ticketing */
+form{
+  max-width: 50%;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.success_message{
+  display: block;
+    margin-bottom: 30px;
+    background-color: aquamarine;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+form label{
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+form .form_box{
+  margin-bottom: 15px;
+}
+
+form .error{
+  display: block;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+form input, form textarea, form select{
+  width: 100%;
+  height: 35px;
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid #000;
+  border-radius: 6px;
+
+}
+
+form textarea{
+  height: 100px;
+}
+
+form .btn{
+  background-color: #000;
+  color: #fff;
+  height: auto;
+  padding: 12px 20px;
+  cursor: pointer;
+}
