@@ -1,12 +1,59 @@
-# React + Vite
+# 🎟️ Mini Ticketing App (React)
+A simple React ticketing app where you can create, search, and list tickets stored in **localStorage**.  
+This project also demonstrates state management, search filtering, and component composition.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🚀 Features
+- Add tickets with title, description and priority badge.
+- Persist tickets in **localStorage**
+- Search tickets by **title** or **description**
+- Real-time filtered results
+- Clean React component structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧠 Part 2: Explain – Architecture & Decisions
+### 1. Component Structure
+Components are split into **Home** (container), **AddTicket**(container) for add ticket form and **CardListing / Search** (presentational).  
+- **Home** → fetches tickets, manages filtering, and holds state.  
+- **Search** → controlled input (receives `searchQuery` + `setSearchQuery`).  
+- **CardListing** → pure renderer of ticket data.  
+- **Badge** → to handle the ui as per the value. 
+This separation keeps logic isolated and UI components reusable.
 
-## Expanding the ESLint configuration
+### 2. State Management
+- `tickets` → stored in **Home**, as it’s needed for listing, counting, and filtering.  
+- `searchQuery` → lifted to **Home**, shared with Search.  
+- `AddTicket` → local form state, pushes to `localStorage`.  
+This ensures a **single source of truth** for tickets.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 3. Performance Considerations
+As of now we use UseMemo for memoizing its search result as per searchQuery. but in future If tickets scale to 1,000+:  
+- **Debounce search** (250–300ms).  
+- **Pagination or infinite scroll**.  
+- Use `useMemo` + `useCallback` for stable computations & handlers.  
+
+### 5. What I Googled / Used GPT For
+For describing the features we use the same. but for coding and generating logics **No**.
+
+## 🐞 Part 3: Debug – Fix a Broken Ticket Counter
+
+### Original (broken)
+```jsx
+<TicketCounter />
+
+It should display:
+You have 3 open tickets
+But here’s the broken implementation:
+
+function TicketCounter({ tickets }) {
+const openCount = tickets.filter(ticket => ticket.status !==
+'closed').length;
+return <div>You have {openCount} open tickets</div>;
+}
+```
+
+as you can see TicketCounter component received on props but while accessing we are not able to pass the props. So we have pass props to it as 
+```jsx
+<TicketCounter tickets={tickets}/>
+```
+

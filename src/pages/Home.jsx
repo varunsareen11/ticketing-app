@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 // import Components
 import CardListing from "../components/CardListing";
 import Search from "../components/Search";
+import TicketCounter from "../components/TicketCounter";
 
 const Home = () => {
   const [tickets, setTickets] = useState([]);
@@ -42,6 +43,7 @@ const Home = () => {
           {/* Searching */}
           <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
+        <TicketCounter tickets={tickets}/>
         {/* Listing */}
         {filterTickets && filterTickets.length > 0 ? (
           <CardListing ticketData={filterTickets} />
