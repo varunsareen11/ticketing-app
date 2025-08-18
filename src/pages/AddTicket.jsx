@@ -51,7 +51,9 @@ const AddTicket = () => {
 
     if(getTicketing){
       data = getTicketing
-      dataId = data[data.length - 1].id + 1
+      if(data.length > 0){
+        dataId = data[0].id + 1
+      }
     }
 
     data.unshift({

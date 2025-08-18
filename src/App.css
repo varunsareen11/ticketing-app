@@ -137,6 +137,32 @@ body{
   margin-top: 20px;
 }
 
+.ticketing_card .btn_group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ticketing_card .btn{
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.ticketing_card .btn.open{
+  background-color: #b21313;
+  color: #fff;
+}
+
+.ticketing_card .btn.close{
+  background-color: green;
+  color: #fff;
+  cursor:auto;
+}
+
 /* Add ticketing */
 form{
   max-width: 50%;
